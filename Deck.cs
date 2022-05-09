@@ -1,0 +1,138 @@
+using System;
+using System.Collections.Generic;
+
+public static class Deck
+{
+    static Random rnd = new Random();
+    public static List<Card> DeckCards { get; } = new List<Card>
+    {
+        new Card("Red", 0),
+        new Card("Red", 0),
+        new Card("Red", 1),
+        new Card("Red", 1),
+        new Card("Red", 2),
+        new Card("Red", 2),
+        new Card("Red", 3),
+        new Card("Red", 3),
+        new Card("Red", 4),
+        new Card("Red", 4),
+        new Card("Red", 5),
+        new Card("Red", 5),
+        new Card("Red", 6),
+        new Card("Red", 6),
+        new Card("Red", 7),
+        new Card("Red", 7),
+        new Card("Red", 8),
+        new Card("Red", 8),
+        new Card("Red", 9),
+        new Card("Red", 9),
+        new Card("Red", -1, "skip", 0),
+        new Card("Red", -1, "skip", 0),
+        new Card("Red", -2, "reverse", 0),
+        new Card("Red", -2, "reverse", 0),
+        new Card("Red", -3, "+2", 1),
+        new Card("Red", -3, "+2" ,1),
+
+        new Card("Blue", 0),
+        new Card("Blue", 0),
+        new Card("Blue", 1),
+        new Card("Blue", 1),
+        new Card("Blue", 2),
+        new Card("Blue", 2),
+        new Card("Blue", 3),
+        new Card("Blue", 3),
+        new Card("Blue", 4),
+        new Card("Blue", 4),
+        new Card("Blue", 5),
+        new Card("Blue", 5),
+        new Card("Blue", 6),
+        new Card("Blue", 6),
+        new Card("Blue", 7),
+        new Card("Blue", 7),
+        new Card("Blue", 8),
+        new Card("Blue", 8),
+        new Card("Blue", 9),
+        new Card("Blue", 9),
+        new Card("Blue", -1, "skip", 0),
+        new Card("Blue", -1, "skip", 0),
+        new Card("Blue", -2, "reverse", 0),
+        new Card("Blue", -2, "reverse", 0),
+        new Card("Blue", -3, "+2", 1),
+        new Card("Blue", -3, "+2", 1),
+
+        new Card("Green", 0),
+        new Card("Green", 0),
+        new Card("Green", 1),
+        new Card("Green", 1),
+        new Card("Green", 2),
+        new Card("Green", 2),
+        new Card("Green", 3),
+        new Card("Green", 3),
+        new Card("Green", 4),
+        new Card("Green", 4),
+        new Card("Green", 5),
+        new Card("Green", 5),
+        new Card("Green", 6),
+        new Card("Green", 6),
+        new Card("Green", 7),
+        new Card("Green", 7),
+        new Card("Green", 8),
+        new Card("Green", 8),
+        new Card("Green", 9),
+        new Card("Green", 9),
+        new Card("Green", -1, "skip", 0),
+        new Card("Green", -1, "skip", 0),
+        new Card("Green", -2, "reverse", 0),
+        new Card("Green", -2, "reverse", 0),
+        new Card("Green", -3, "+2", 1),
+        new Card("Green", -3, "+2", 1),
+
+        new Card("Yellow", 0),
+        new Card("Yellow", 0),
+        new Card("Yellow", 1),
+        new Card("Yellow", 1),
+        new Card("Yellow", 2),
+        new Card("Yellow", 2),
+        new Card("Yellow", 3),
+        new Card("Yellow", 3),
+        new Card("Yellow", 4),
+        new Card("Yellow", 4),
+        new Card("Yellow", 5),
+        new Card("Yellow", 5),
+        new Card("Yellow", 6),
+        new Card("Yellow", 6),
+        new Card("Yellow", 7),
+        new Card("Yellow", 7),
+        new Card("Yellow", 8),
+        new Card("Yellow", 8),
+        new Card("Yellow", 9),
+        new Card("Yellow", 9),
+        new Card("Yellow", -1, "skip", 0),
+        new Card("Yellow", -1, "skip", 0),
+        new Card("Yellow", -2, "reverse", 0),
+        new Card("Yellow", -2, "reverse", 0),
+        new Card("Yellow", -3, "+2", 1),
+        new Card("Yellow", -3, "+2", 1),
+
+        new Card("Wild", -4),
+        new Card("Wild", -4),
+        new Card("Wild", -4),
+        new Card("Wild", -4),
+
+        new Card("Wild", -4, "+4", 2),
+        new Card("Wild", -4, "+4", 2),
+        new Card("Wild", -4, "+4", 2),
+        new Card("Wild", -4, "+4", 2),
+    };
+
+    public static List<Card> DiscardPile { get; private set; } = new List<Card>();
+
+    public static Card DrawCard()
+    {
+        Card nextCard = DeckCards[rnd.Next(0, DeckCards.Count)];
+        DeckCards.Remove(nextCard);
+        DiscardPile.Add(nextCard);
+
+        return nextCard;
+    }
+}
